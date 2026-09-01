@@ -18,8 +18,8 @@
         "vite": "^8.2.2",
       },
       "peerDependencies": {
-        "tailwindcss": "^4.3.3",
-        "vite": "^8.0.0",
+        "tailwindcss": "^4",
+        "vite": "^8",
       },
     },
   },

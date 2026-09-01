@@ -1,17 +1,6 @@
 import type { Plugin, ResolvedConfig } from "vite";
 
-import { browserslistToTargets } from "lightningcss";
-
-import { buildPolyfills } from "./build/pipeline.js";
-
-export const pluginName = "tailwind-polyfill";
-export const browserTargets = browserslistToTargets([
-  "chrome 85",
-  "edge 85",
-  "firefox 80",
-  "safari 14.1",
-  "ios_saf 14.5",
-]);
+import { buildPolyfills, pluginName } from "./build.js";
 
 export default function tailwindPolyfill(): Plugin {
   let config: ResolvedConfig;

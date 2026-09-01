@@ -25,7 +25,6 @@ function selectStylesheetMode(): void {
       if (modernUrls.has(link.href) && !link.hasAttribute("data-tailwind-polyfill")) {
         link.disabled = true;
         link.media = "not all";
-        link.setAttribute("data-tailwind-modern", "");
       }
     });
   };
