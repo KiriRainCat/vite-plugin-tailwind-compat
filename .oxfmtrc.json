@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "sortTailwindcss": { "functions": ["cn", "cva", "clsx"] },
+  "htmlWhitespaceSensitivity": "ignore",
+  "quoteProps": "consistent",
+  "printWidth": 120,
+  "sortImports": {
+    "customGroups": [{ "groupName": "monorepo", "elementNamePattern": ["@repo/**"], "modifiers": ["value"] }],
+    "groups": [["type"], ["builtin", "external"], ["monorepo"], ["internal"], ["parent", "sibling", "index"]]
+  }
+}

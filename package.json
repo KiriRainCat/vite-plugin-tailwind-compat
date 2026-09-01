@@ -1,0 +1,53 @@
+{
+  "name": "vite-plugin-tailwind-polyfill",
+  "version": "0.1.0",
+  "description": "Generate polyfills for Tailwind CSS 4 with best-effort support.",
+  "keywords": [
+    "polyfill",
+    "tailwindcss",
+    "vite"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KiriRainCat/vite-plugin-tailwind-polyfill"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "fmt": "oxfmt",
+    "lint": "oxlint",
+    "check": "tsc --noEmit",
+    "fix": "oxlint --fix && oxfmt && bun check",
+    "build": "tsdown",
+    "prepack": "bun run build"
+  },
+  "dependencies": {
+    "lightningcss": "1.33.0",
+    "postcss": "^8.5.26"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "oxfmt": "^0.65.0",
+    "oxlint": "^1.80.0",
+    "rimraf": "^6.1.3",
+    "tsdown": "^0.22.14",
+    "typescript": "~7.0.2",
+    "vite": "^8.2.2"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4",
+    "vite": "^8"
+  }
+}

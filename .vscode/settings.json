@@ -1,0 +1,24 @@
+{
+  // Dictionary
+  "cSpell.words": [],
+
+  // Nested files
+  "explorer.fileNesting.patterns": {},
+
+  // Hidden files
+  "files.exclude": {
+    "**/node_modules": true
+  },
+
+  // Typescript configs
+  "js/ts.experimental.useTsgo": true,
+
+  // Enable oxc toolchains
+  "[typescript][javascript][typescriptreact][javascriptreact][vue]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never",
+      "source.removeUnusedImports": "explicit"
+    }
+  }
+}

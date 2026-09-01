@@ -1,0 +1,38 @@
+# VSCode
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+
+# Temporary
+tmp/
+temp/
+logs/
+*.tmp
+*.temp
+*.log
+
+# Distribution
+dist/
+target/
+coverage/
+node_modules/
+
+# Generated
+.tanstack/
+stats.html
+*.tsbuildinfo
+rustc-ice-*.txt
