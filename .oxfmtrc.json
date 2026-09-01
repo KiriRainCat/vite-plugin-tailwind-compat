@@ -7,5 +7,6 @@
   "sortImports": {
     "customGroups": [{ "groupName": "monorepo", "elementNamePattern": ["@repo/**"], "modifiers": ["value"] }],
     "groups": [["type"], ["builtin", "external"], ["monorepo"], ["internal"], ["parent", "sibling", "index"]]
-  }
+  },
+  "ignorePatterns": ["**/src/components/ui/**"]
 }

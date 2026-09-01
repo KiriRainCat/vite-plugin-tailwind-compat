@@ -10,7 +10,13 @@
     "**/node_modules": true
   },
 
+  // Readonly files
+  "search.exclude": { "**/src/components/ui/**": true },
+  "files.watcherExclude": { "**/src/components/ui/**": true },
+  "files.readonlyInclude": { "**/src/components/ui/**": true },
+
   // Typescript configs
+  "js/ts.preferences.autoImportFileExcludePatterns": ["**/node_modules/**/@base-ui/**"],
   "js/ts.experimental.useTsgo": true,
 
   // Enable oxc toolchains

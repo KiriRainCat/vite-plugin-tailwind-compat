@@ -5,5 +5,6 @@
     "import/consistent-type-specifier-style": "warn",
     "import/no-cycle": "warn",
     "no-explicit-any": "warn"
-  }
+  },
+  "ignorePatterns": ["**/src/components/ui/**"]
 }
