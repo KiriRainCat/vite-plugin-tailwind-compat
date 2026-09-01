@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Polyfill Demo</title>
+  </head>
+  <body>
+    <div
+      id="polyfill-probe"
+      style="
+        position: fixed !important;
+        top: 8px !important;
+        left: 8px !important;
+        z-index: 2147483647 !important;
+        display: block !important;
+        padding: 4px 8px !important;
+        border-radius: 4px !important;
+        background: #92400e !important;
+        color: #fff !important;
+        font: 12px/1.5 monospace !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      "
+    >
+      polyfill: checking
+    </div>
+
+    <script>
+      (function () {
+        var probe = document.getElementById("polyfill-probe");
+        var links = document.querySelectorAll("link[data-tailwind-polyfill]");
+        var enabled = false;
+        for (var index = 0; index < links.length; index += 1) {
+          if (links[index].media === "all") enabled = true;
+        }
+
+        if (enabled) {
+          probe.textContent = "polyfill: enabled";
+          probe.style.setProperty("background", "#166534", "important");
+        } else if (links.length === 0) {
+          probe.textContent = "polyfill: disabled";
+          probe.style.setProperty("background", "#334155", "important");
+        } else {
+          probe.textContent = "polyfill: inactive";
+          probe.style.setProperty("background", "#92400e", "important");
+        }
+
+        function reportError(message) {
+          probe.textContent += " | error: " + message;
+          probe.style.setProperty("background", "#991b1b", "important");
+        }
+
+        window.addEventListener("error", function (event) {
+          reportError(event.message || "unknown");
+        });
+        window.addEventListener("unhandledrejection", function (event) {
+          reportError(String(event.reason || "unhandled rejection"));
+        });
+      })();
+    </script>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

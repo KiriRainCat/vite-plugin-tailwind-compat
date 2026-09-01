@@ -1,0 +1,10 @@
+@layer components {
+  .lazy-panel-marker {
+    border: 1px solid var(--primary);
+    border-radius: var(--radius);
+    background: color-mix(in oklab, var(--primary) 15%, transparent);
+    padding: 1rem;
+    color: var(--foreground);
+    transform: translateY(0);
+  }
+}
