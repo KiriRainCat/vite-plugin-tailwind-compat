@@ -30,8 +30,7 @@
     "lint": "oxlint",
     "check": "tsc --noEmit",
     "fix": "oxlint --fix && oxfmt && bun check",
-    "build": "tsdown",
-    "prepack": "bun run build"
+    "build": "tsdown"
   },
   "dependencies": {
     "lightningcss": "1.33.0",
