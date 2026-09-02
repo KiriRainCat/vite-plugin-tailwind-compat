@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "vite-plugin-tailwind-polyfill",
+      "name": "vite-plugin-tailwind-compat",
       "dependencies": {
         "lightningcss": "1.33.0",
         "postcss": "^8.5.26",

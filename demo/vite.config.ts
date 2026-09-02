@@ -2,7 +2,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-import tailwindPolyfill from "../src/index.ts";
+import tailwindCompat from "../src/index.ts";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,7 +11,7 @@ export default defineConfig({
     host: "0.0.0.0",
   },
 
-  plugins: [react(), tailwindcss(), tailwindPolyfill()],
+  plugins: [react(), tailwindcss(), tailwindCompat()],
 
   build: {
     target: "es2015",

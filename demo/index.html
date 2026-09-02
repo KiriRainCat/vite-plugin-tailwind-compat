@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tailwind Polyfill Demo</title>
+    <title>Tailwind Compat Demo</title>
   </head>
   <body>
     <div
-      id="polyfill-probe"
+      id="compat-probe"
       style="
         position: fixed !important;
         top: 8px !important;
@@ -24,26 +24,26 @@
         visibility: visible !important;
       "
     >
-      polyfill: checking
+      compat: checking
     </div>
 
     <script>
       (function () {
-        var probe = document.getElementById("polyfill-probe");
-        var links = document.querySelectorAll("link[data-tailwind-polyfill]");
+        var probe = document.getElementById("compat-probe");
+        var links = document.querySelectorAll("link[data-tailwind-compat]");
         var enabled = false;
         for (var index = 0; index < links.length; index += 1) {
           if (links[index].media === "all") enabled = true;
         }
 
         if (enabled) {
-          probe.textContent = "polyfill: enabled";
+          probe.textContent = "compat: enabled";
           probe.style.setProperty("background", "#166534", "important");
         } else if (links.length === 0) {
-          probe.textContent = "polyfill: disabled";
+          probe.textContent = "compat: disabled";
           probe.style.setProperty("background", "#334155", "important");
         } else {
-          probe.textContent = "polyfill: inactive";
+          probe.textContent = "compat: inactive";
           probe.style.setProperty("background", "#92400e", "important");
         }
 

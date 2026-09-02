@@ -2,7 +2,7 @@
 export const runtimeScript = `(${selectStylesheetMode.toString()})();`;
 
 function selectStylesheetMode(): void {
-  const polyfills = [...document.querySelectorAll<HTMLLinkElement>("link[data-tailwind-polyfill]")];
+  const polyfills = [...document.querySelectorAll<HTMLLinkElement>("link[data-tailwind-compat]")];
   if (polyfills.length === 0) return;
 
   const supportsModernCss =
@@ -22,7 +22,7 @@ function selectStylesheetMode(): void {
 
   const disableModernCss = () => {
     document.querySelectorAll<HTMLLinkElement>("link[rel=stylesheet]").forEach((link) => {
-      if (modernUrls.has(link.href) && !link.hasAttribute("data-tailwind-polyfill")) {
+      if (modernUrls.has(link.href) && !link.hasAttribute("data-tailwind-compat")) {
         link.disabled = true;
         link.media = "not all";
       }

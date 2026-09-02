@@ -6,7 +6,7 @@ import path from "node:path";
 import { compilePolyfillCss } from "./css.js";
 import { runtimeScript } from "./runtime.js";
 
-export const pluginName = "tailwind-polyfill";
+export const pluginName = "tailwind-compat";
 
 interface Polyfill {
   modernFile: string;
@@ -81,9 +81,9 @@ function injectPolyfillMarkup(html: string, htmlFile: string, polyfills: Polyfil
   const links = ordered.map((fallback) => {
     const fallbackUrl = escapeAttribute(resolveAssetUrl(fallback.polyfillFile, htmlFile, base));
     const modernUrl = escapeAttribute(resolveAssetUrl(fallback.modernFile, htmlFile, base));
-    return `<link rel="stylesheet" crossorigin href="${fallbackUrl}" media="not all" data-tailwind-polyfill data-tailwind-modern-href="${modernUrl}">`;
+    return `<link rel="stylesheet" crossorigin href="${fallbackUrl}" media="not all" data-tailwind-compat data-tailwind-modern-href="${modernUrl}">`;
   });
-  return injectIntoHead(html, `${links.join("")}<script data-tailwind-polyfill-runtime>${runtimeScript}</script>`);
+  return injectIntoHead(html, `${links.join("")}<script data-tailwind-compat-runtime>${runtimeScript}</script>`);
 }
 
 function stylesheetIndex(html: string, url: string): number {

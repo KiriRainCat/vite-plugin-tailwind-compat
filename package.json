@@ -1,7 +1,7 @@
 {
-  "name": "vite-plugin-tailwind-polyfill",
+  "name": "vite-plugin-tailwind-compat",
   "version": "0.1.0",
-  "description": "Generate polyfills for Tailwind CSS 4 with best-effort support.",
+  "description": "A Vite plugin that brings Tailwind CSS 4 compatibility to older browsers.",
   "keywords": [
     "polyfill",
     "tailwindcss",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KiriRainCat/vite-plugin-tailwind-polyfill"
+    "url": "https://github.com/KiriRainCat/vite-plugin-tailwind-compat"
   },
   "files": [
     "dist",

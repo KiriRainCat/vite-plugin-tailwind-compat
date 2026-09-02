@@ -2,7 +2,7 @@ import type { Plugin, ResolvedConfig } from "vite";
 
 import { buildPolyfills, pluginName } from "./build.js";
 
-export default function tailwindPolyfill(): Plugin {
+export default function tailwindCompat(): Plugin {
   let config: ResolvedConfig;
 
   return {

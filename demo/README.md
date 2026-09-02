@@ -17,6 +17,6 @@ Test current browsers and the documented legacy targets: Chrome/Edge 85, Firefox
 - The 50% primary surface, 20% border, button variants, and input focus ring remain visible.
 - The dialog opens centered with a translucent overlay and working entry/exit transforms.
 - Loading the lazy panel preserves its border, background, spacing, and text color.
-- In a current browser, `link[data-tailwind-polyfill]` elements are removed.
-- In a legacy browser, polyfill links use `media="all"`; matching modern links use `disabled` and `media="not all"`.
+- In a current browser, `link[data-tailwind-compat]` elements are removed.
+- In a legacy browser, compat links use `media="all"`; matching modern links use `disabled` and `media="not all"`.
 - After loading the lazy panel in a legacy browser, its newly inserted modern stylesheet is also disabled.

@@ -177,7 +177,7 @@ function evaluateColors(evaluations: Evaluation[], targets: Targets, warnings: C
     .join("");
   const result = transform({
     code: new TextEncoder().encode(source),
-    filename: "tailwind-polyfill-colors.css",
+    filename: "tailwind-compat-colors.css",
     minify: false,
     targets,
   });

@@ -28,7 +28,7 @@ export default function App() {
   return (
     <main className="mx-auto flex min-h-svh max-w-3xl flex-col gap-6 p-6 sm:p-10">
       <div>
-        <p className="text-muted-foreground text-sm">vite-plugin-tailwind-polyfill</p>
+        <p className="text-muted-foreground text-sm">vite-plugin-tailwind-compat</p>
         <h1 className="text-3xl font-semibold tracking-tight">Legacy CSS compatibility demo</h1>
       </div>
 
