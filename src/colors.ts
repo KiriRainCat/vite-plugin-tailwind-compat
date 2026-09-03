@@ -30,10 +30,19 @@ interface Use {
 
 const mixPattern = /^color-mix\(in (oklab|srgb),\s*var\((--[a-zA-Z0-9_-]+)\)\s+([0-9]*\.?[0-9]+)%,\s*transparent\)$/;
 
+// Tailwind compiles opacity-modified colors (`bg-primary/50`) as a baked concrete
+// fallback plus a var-based color-mix() inside `@supports (color: color-mix(...))`.
+// Legacy browsers fail that test and only render the fallback, so this module
+// computes each mix into a concrete color, injects it beside every assignment
+// of the source variable (preserving theme switching), and redirects to it.
 export function materializeColorFallbacks(roots: Root[], targets: Targets): ColorWarning[] {
   const { mixes, uses } = collectMixes(roots);
   if (mixes.size === 0) return [];
 
+  // Legacy browsers skip the @supports block, so its uses must redirect the sibling
+  // fallback declaration instead (with @theme inline that fallback lowers to the
+  // raw, opaque variable). Selectors sharing a fallback rule may need different
+  // mixes; one declaration cannot hold them all, so per-selector rules are appended.
   const warnings = rewriteFallbackDeclarations(roots, uses);
 
   const byVariable = new Map<string, Mix[]>();
@@ -45,6 +54,9 @@ export function materializeColorFallbacks(roots: Root[], targets: Targets): Colo
 
   const assignments: Array<{ declaration: postcss.Declaration; evaluation: Evaluation }> = [];
   const evaluations = new Map<string, Evaluation>();
+
+  // Legacy browsers never apply @supports blocks, so only plain assignments seed
+  // evaluations; the skipped ones are wide-gamut duplicates of the same value.
   for (const root of roots) {
     root.walkDecls((declaration) => {
       if (declaration.parent?.type !== "rule" || isInsideSupports(declaration)) return;

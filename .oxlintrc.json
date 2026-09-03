@@ -7,6 +7,9 @@
   },
 
   "rules": {
+    "eqeqeq": "error",
+    "no-unused-vars": "warn",
+
     "import/no-cycle": "warn",
     "import/consistent-type-specifier-style": "warn",
 
